@@ -1,0 +1,99 @@
+/* dashboard.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background: #2C3E50;
+    color: #ECF0F1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar h2 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    color: #ECF0F1;
+    text-decoration: none;
+}
+
+.sidebar ul li a.active {
+    background-color: #2980B9;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f7f9fc;
+}
+
+header h1 {
+    font-size: 1.8em;
+    color: #34495E;
+    margin-bottom: 20px;
+}
+
+/* Kotak Statistik */
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    padding: 20px;
+    background-color: #ECF0F1;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card .icon {
+    margin-right: 15px;
+}
+
+.stat-card .icon img {
+    width: 50px;
+    height: 50px;
+}
+
+.stat-card .info h3 {
+    font-size: 1em;
+    color: #34495E;
+    margin-bottom: 5px;
+}
+
+.stat-card .info p {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #2980B9;
+}
