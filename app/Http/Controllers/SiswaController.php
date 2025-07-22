@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Siswa;
 use App\Models\Schedule;
+use App\Models\HasilKonseling;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -163,7 +164,27 @@ class SiswaController extends Controller
         return response()->json($events);
     }
 
- 
+    public function hasilKonseling()
+    {
+        // Pastikan siswa sudah login
+        if (!Auth::check()) {
+            // Jika tidak login, arahkan ke halaman login siswa
+            return redirect()->route('login.siswa')->with('error', 'Anda harus login sebagai siswa untuk melihat hasil konseling.');
+        }
+
+        // Ambil NISN dari siswa yang sedang login
+        // Asumsi: Model User siswa memiliki kolom 'nisn'
+        $user = Auth::user();
+        $siswa = $user->siswa;
+        if (!$siswa) {
+             return view('siswa.hasil', ['data' => collect()])->with('message', 'Data siswa Anda tidak ditemukan atau belum ada hasil konseling.');
+    }
+        // Ambil data hasil konseling berdasarkan siswa_id dari siswa yang login
+       $data = HasilKonseling::where('siswa_id', $siswa->id)->latest()->get();
+
+        // Kirim data ke view siswa.hasil
+        return view('siswa.hasil', compact('data'));
+    }
 
     /**
      * Display a listing of the resource.

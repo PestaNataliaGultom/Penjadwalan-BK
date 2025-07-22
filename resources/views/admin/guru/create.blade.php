@@ -74,12 +74,7 @@
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Simpan</button>
-                        <a href="{{ route('guru.index') }}" class="btn btn-secondary">Kembali</a>
-
-                        <hr class="my-4">
-                        <h4 class="text-success">Form Input Hasil Konseling Siswa</h4>
-                        <form action="{{ route('hasil.store') }}" method="POST" class="mt-5">
-
+                        <a href="{{ route('guru.hasil-konseling.create') }}" class="btn btn-primary">Kembali</a>
                     </form>
                 </div>
             </div>

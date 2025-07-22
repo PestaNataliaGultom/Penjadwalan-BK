@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('hasil_konselings', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('siswa_id')->constrained('siswas')->onDelete('cascade');
+            $table->foreignId('guru_bk_id')->constrained('users')->onDelete('cascade');
             $table->string('nama_siswa');
             $table->string('nisn');
             $table->string('kelas');

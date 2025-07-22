@@ -313,7 +313,7 @@
                             <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    <i class="fas fa-sign-out-alt me-2"></i> Logout
+                                    <i class="fas fa-sign-out-alt me-2">Logout</i> 
                                 </a>
                             </li>
                         </ul>
@@ -338,39 +338,49 @@
     </div>
 </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.17/index.global.min.js'></script> 
-    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/bootstrap5@6.1.7/index.global.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.17/index.global.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/bootstrap5@6.1.7/index.global.min.js"></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const sidebar = document.getElementById('sidebar-wrapper');
             const content = document.getElementById('page-content-wrapper');
             const toggleBtn = document.getElementById('sidebarToggle');
-            const navbar = document.querySelector('.navbar');
+            const navbar = document.querySelector('.navbar'); // Pastikan elemen navbar ada
 
-            toggleBtn.addEventListener('click', () => {
-                sidebar.classList.toggle('collapsed');
-                content.classList.toggle('expanded');
-                navbar.classList.toggle('sidebar-collapsed-navbar');
-            });
+            // Pastikan elemen ditemukan sebelum menambahkan event listener
+            if (toggleBtn && sidebar && content && navbar) {
+                toggleBtn.addEventListener('click', () => {
+                    sidebar.classList.toggle('collapsed');
+                    content.classList.toggle('expanded');
+                    navbar.classList.toggle('sidebar-collapsed-navbar');
+                });
+            } else {
+                console.warn("Sidebar toggle elements not found. Sidebar functionality might be impaired.");
+            }
+
 
             const responsiveHandler = () => {
                 if (window.innerWidth < 768) {
                     sidebar.classList.add('collapsed');
                     content.classList.add('expanded');
+                    // navbar.classList.add('sidebar-collapsed-navbar'); // Mungkin tidak perlu di sini, karena toggleBtn yang mengontrol
                 } else {
                     sidebar.classList.remove('collapsed');
                     content.classList.remove('expanded');
+                    // navbar.classList.remove('sidebar-collapsed-navbar'); // Mungkin tidak perlu di sini
                 }
             };
 
             window.addEventListener('resize', responsiveHandler);
-            responsiveHandler();
+            responsiveHandler(); // Panggil saat DOMContentLoaded untuk setelan awal
         });
     </script>
+    {{-- Ini adalah tempat script kustom dari @push('scripts') dari view Anda --}}
     @stack('scripts')
 </body>
 </html>

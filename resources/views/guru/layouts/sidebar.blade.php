@@ -20,7 +20,7 @@
 
         <div class="menu-item {{ request()->routeIs('guru.hasil-konseling*') ? 'active' : '' }}">
             <a href="{{ route('guru.hasil-konseling') }}" class="menu-link">
-                <div class="menu-icon">📋</div>
+                <div class="menu-icon">📋</div> {{-- Icon diubah menjadi 📋 --}}
                 <span>Hasil Konseling</span>
             </a>
         </div>

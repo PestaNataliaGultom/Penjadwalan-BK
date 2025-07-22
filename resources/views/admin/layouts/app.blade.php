@@ -258,15 +258,6 @@
                     <a href="{{route('guru.index')}}" class="list-group-item list-group-item-action {{ request()->routeIs('guru.index') ? 'active' : '' }}">
                         <i class="fas fa-user-tie"></i> Guru BK
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <i class="fas fa-user-tie"></i> Hasil Konseling
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <i class="fas fa-comments"></i> Konseling
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <i class="fas fa-calendar-alt"></i> Jadwal
-                    </a>
                 </div>
             </div>
 

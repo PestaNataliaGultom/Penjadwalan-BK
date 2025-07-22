@@ -1,7 +1,6 @@
 @extends('guru.layouts.app')
 
 @section('title', 'Jadwal Guru BK')
-
 @section('content') 
 <div class="col-md-12">
     <div class="main-content">
