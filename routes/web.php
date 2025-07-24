@@ -48,24 +48,27 @@ use App\Http\Controllers\PengaturanController;
     |--------------------------------------------------------------------------
     */
         Route::prefix('guru')->group(function () {
-        Route::get('/dashboard', [GuruBKController::class, 'dashboard'])->name('guru.dashboard');
-        // Hasil Konseling
-        Route::get('/hasil-konseling', [HasilKonselingController::class, 'index'])->name('guru.hasil-konseling');
-        Route::get('/hasil-konseling/create', [HasilKonselingController::class, 'create'])->name('guru.hasil-konseling.create');
-        Route::post('/hasil-konseling', [HasilKonselingController::class, 'store'])->name('guru.hasil-konseling.store');
-        Route::get('/hasil-konseling/{id}', [HasilKonselingController::class, 'show'])->name('guru.hasil-konseling.show');
-        Route::get('/hasil-konseling/{id}/edit', [HasilKonselingController::class, 'edit'])->name('guru.hasil-konseling.edit');
-        Route::put('/hasil-konseling/{id}', [HasilKonselingController::class, 'update'])->name('guru.hasil-konseling.update');
-        Route::delete('/hasil-konseling/{id}', [HasilKonselingController::class, 'destroy'])->name('guru.hasil-konseling.destroy');
-        Route::post('/guru/hasil-konseling', [HasilKonselingController::class, 'store'])->name('hasil-konseling.store');
+            Route::get('/dashboard', [GuruBKController::class, 'dashboard'])->name('guru.dashboard');
+            // Hasil Konseling
+            Route::get('/hasil-konseling', [HasilKonselingController::class, 'index'])->name('guru.hasil-konseling');
+            Route::get('/hasil-konseling/create', [HasilKonselingController::class, 'create'])->name('guru.hasil-konseling.create');
+            Route::post('/hasil-konseling', [HasilKonselingController::class, 'store'])->name('guru.hasil-konseling.store');
+            Route::get('/hasil-konseling/{id}', [HasilKonselingController::class, 'show'])->name('guru.hasil-konseling.show');
+            Route::get('/hasil-konseling/{id}/edit', [HasilKonselingController::class, 'edit'])->name('guru.hasil-konseling.edit');
+            Route::put('/hasil-konseling/{id}', [HasilKonselingController::class, 'update'])->name('guru.hasil-konseling.update');
+            Route::delete('/hasil-konseling/{id}', [HasilKonselingController::class, 'destroy'])->name('guru.hasil-konseling.destroy');
+            Route::post('/guru/hasil-konseling', [HasilKonselingController::class, 'store'])->name('hasil-konseling.store');
 
 
 
 
-        // Jadwal
-        Route::get('/jadwal', [JadwalController::class, 'index'])->name('guru.jadwal');
-        Route::get('/jadwal-json', [JadwalController::class, 'getTotalJadwal'])->name('guru.jadwal.json');
-        Route::post('/jadwal-approve', [JadwalController::class, 'approve'])->name('guru.approve');
-        
-    });
+            // Jadwal
+            Route::get('/jadwal', [JadwalController::class, 'index'])->name('guru.jadwal');
+            Route::get('/jadwal-json', [JadwalController::class, 'getTotalJadwal'])->name('guru.jadwal.json');
+            Route::post('/jadwal-approve', [JadwalController::class, 'approve'])->name('guru.approve');
+            Route::post('/jadwal-reject', [JadwalController::class, 'reject'])->name('guru.reject');
+            Route::post('/jadwal-reschedule', [JadwalController::class, 'reschedule'])->name('guru.rescheckAvailabilitychedule');
+            Route::post('/jadwal-check-availability', [JadwalController::class, 'checkAvailability'])->name('guru.check-availability');
+            
+        });
 });

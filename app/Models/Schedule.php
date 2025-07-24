@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Schedule extends Model
 {
@@ -26,9 +28,10 @@ class Schedule extends Model
     {
         if ($this->status == 1) {
             return '<span class="badge bg-success">Sudah di ACC</span>';
+        }elseif ($this->status == 2) {
+            return '<span class="badge bg-danger">Ditolak</span>';
         }
-        
-        return '<span class="badge bg-danger">Belum di ACC</span>';
+        return '<span class="badge bg-info">Belum di ACC</span>';
     }
 
     public function user()
@@ -42,4 +45,14 @@ class Schedule extends Model
             $q->where('name', 'Guru Bk');
         });
     }
+
+  /**
+   * Get the output associated with the Schedule
+   *
+   * @return \Illuminate\Database\Eloquent\Relations\HasOne
+   */
+  public function outputSchedule(): HasOne
+  {
+      return $this->hasOne(ScheduleOutput::class, 'schedule_id', 'id');
+  }
 }

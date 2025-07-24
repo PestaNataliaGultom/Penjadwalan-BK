@@ -166,24 +166,8 @@ class SiswaController extends Controller
 
     public function hasilKonseling()
     {
-        // Pastikan siswa sudah login
-        if (!Auth::check()) {
-            // Jika tidak login, arahkan ke halaman login siswa
-            return redirect()->route('login.siswa')->with('error', 'Anda harus login sebagai siswa untuk melihat hasil konseling.');
-        }
-
-        // Ambil NISN dari siswa yang sedang login
-        // Asumsi: Model User siswa memiliki kolom 'nisn'
-        $user = Auth::user();
-        $siswa = $user->siswa;
-        if (!$siswa) {
-             return view('siswa.hasil', ['data' => collect()])->with('message', 'Data siswa Anda tidak ditemukan atau belum ada hasil konseling.');
-    }
-        // Ambil data hasil konseling berdasarkan siswa_id dari siswa yang login
-       $data = HasilKonseling::where('siswa_id', $siswa->id)->latest()->get();
-
-        // Kirim data ke view siswa.hasil
-        return view('siswa.hasil', compact('data'));
+       $schedules = Schedule::with(['user', 'teacher','outputSchedule'])->where('user_id', Auth::id())->get();
+        return view('siswa.hasil', compact('schedules'));
     }
 
     /**
