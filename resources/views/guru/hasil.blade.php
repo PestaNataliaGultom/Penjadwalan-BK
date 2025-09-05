@@ -77,7 +77,7 @@
                 <h5 class="modal-title" id="detailModalLabel">Detail Hasil Konseling</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{route('hasil-konseling.store')}}" method="POST" id="hasilForm">
+            <form action="{{ route('guru.hasil-konseling.store') }}" method="POST" id="hasilForm">
                 @csrf
                 <input type="hidden" name="schedule_id" id="scheduleId">
                 <div class="modal-body">

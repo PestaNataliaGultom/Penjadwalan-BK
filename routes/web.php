@@ -57,8 +57,6 @@ use App\Http\Controllers\PengaturanController;
             Route::get('/hasil-konseling/{id}/edit', [HasilKonselingController::class, 'edit'])->name('guru.hasil-konseling.edit');
             Route::put('/hasil-konseling/{id}', [HasilKonselingController::class, 'update'])->name('guru.hasil-konseling.update');
             Route::delete('/hasil-konseling/{id}', [HasilKonselingController::class, 'destroy'])->name('guru.hasil-konseling.destroy');
-            Route::post('/guru/hasil-konseling', [HasilKonselingController::class, 'store'])->name('hasil-konseling.store');
-
 
 
 

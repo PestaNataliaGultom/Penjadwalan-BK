@@ -22,7 +22,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        {{-- <div class="col-md-3">
             <div class="card dashboard-card bg-success text-white">
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
@@ -36,22 +36,22 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-3">
+        </div> --}}
+        {{-- <div class="col-md-3">
             <div class="card dashboard-card bg-warning text-white">
                 <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
+                    <div class="d-flex justify-content-between align-items-center"> --}}
+                        {{-- <div>
                             <h5 class="card-title">Jadwal Hari Ini</h5>
                             <h2 class="mb-0">8</h2>
-                        </div>
-                        <div class="card-icon bg-light text-warning rounded">
+                        </div> --}}
+                        {{-- <div class="card-icon bg-light text-warning rounded">
                             <i class="fas fa-calendar-day"></i>
-                        </div>
-                    </div>
+                        </div> --}}
+                    {{-- </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="col-md-3">
             <div class="card dashboard-card bg-info text-white">
                 <div class="card-body">
@@ -70,8 +70,8 @@
     </div>
     
     <!-- Content Area for each page -->
-    <div class="mt-4">
+    {{-- <div class="mt-4">
             <h1>Selamat datang di Dashboard Admin</h1>
     </div>
-</div>
+</div> --}}
 @endsection

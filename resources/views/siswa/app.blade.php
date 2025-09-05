@@ -237,10 +237,11 @@
                                     <i class="fas fa-user-circle me-1"></i> {{ Auth::user()->name }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">
+                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    {{-- <a class="dropdown-item" href="#">
                                         <i class="fas fa-user me-2"></i> Profile
-                                    </a>
+            
+                                    </a> --}}
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

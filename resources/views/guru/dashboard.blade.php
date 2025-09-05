@@ -66,7 +66,7 @@
                             <tbody>
                                 @foreach($konselingTerbaru as $konseling)
                                 <tr>
-                                    <td>{{ $konseling->user->name}}</td>
+                                    <td>{{ $konseling->user?->name }}</td>
                                     <td>{{ date('d-m-Y', strtotime($konseling->schedule_date)) }}</td>
                                     <td>{{ $konseling->from_time .' - '. $konseling->to_time }}</td>
                                     <td>

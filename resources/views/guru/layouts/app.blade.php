@@ -308,10 +308,10 @@
                             <i class="fas fa-user-circle me-1"></i> {{ Auth::user()->name }}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li>
+                            {{-- <li>
                                 <a class="dropdown-item" href="#">Profile</a>
                             </li>
-                            <li>
+                            <li> --}}
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="fas fa-sign-out-alt me-2">Logout</i> 
